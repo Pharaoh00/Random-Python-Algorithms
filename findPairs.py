@@ -13,10 +13,9 @@
 from collections import Counter
 import re
 
+# Sentence from https://sentence.yourdictionary.com/random
 sentence="Deidre paced on the beach behind her bungalow, unable to do anything but lecture herself over and over about how stupid she was to sleep with some random stranger."
 sentence = "".join(sentence.split())
-# for x in t:
-#     print(Counter(re.findall(r'{}'.format(x), txt)))
 
 for i, j in zip(sentence[::2], sentence[1::2]):
     pairs = i+j
