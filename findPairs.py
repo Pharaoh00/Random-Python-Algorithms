@@ -31,7 +31,7 @@ sentence = "".join(sentence.split())
 # Example by itertools recipe on python doc: https://docs.python.org/3/library/itertools.html#itertools-recipes
 def pairwise(iterable):
     "s -> (s0,s1), (s1,s2), (s2, s3), ..."
-    a, b = itertools.tee(iterable)
+    a, b = itertools.tee(iterable) # On pydoc does have itertools.tee(), if you want, just from itertools import tee
     next(b, None)
     return zip(a, b)
 
