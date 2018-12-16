@@ -10,8 +10,18 @@
 #         Facebook: https://www.facebook.com/hamonra.taveira
 # ----------------------------------------------------------- #
 
+# This example i'ill find all the pairs on a sentence, and count them.
+# If you need more than a pair, you can look at grouper() function on itertools recipes pydoc
+# This example does handle the whitespaces properly. The example just join all.
+# If you needed, you can make some function to handle the wthitespaces, with the grouper()
+# you can make something to "see" what's is the next:
+# For example, on this sequence ("Deidre paced"):
+# You can ask for grouper() to pick 3 letters, the function i'll return:
+# [("D, "e", "i"), ("d", "r", "e"), (" ", "p", "a"), ("c", "e", "d")]
+# And you can think of a way to handle things properly, "de", "ei", "dre", "pa", "ced"... Something like that.
+# Btw, i'm not a native english speark. I'm thinking how things have to be, out of my head.
+
 from collections import Counter
-import re
 
 # Sentence from https://sentence.yourdictionary.com/random
 sentence="Deidre paced on the beach behind her bungalow, unable to do anything but lecture herself over and over about how stupid she was to sleep with some random stranger."
