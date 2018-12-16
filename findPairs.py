@@ -22,6 +22,7 @@
 # Btw, i'm not a native english speark. I'm thinking how things have to be, out of my head.
 
 from collections import Counter
+import itertools
 
 # Sentence from https://sentence.yourdictionary.com/random
 sentence="Deidre paced on the beach behind her bungalow, unable to do anything but lecture herself over and over about how stupid she was to sleep with some random stranger."
