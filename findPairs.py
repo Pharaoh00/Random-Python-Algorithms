@@ -17,6 +17,24 @@ import re
 sentence="Deidre paced on the beach behind her bungalow, unable to do anything but lecture herself over and over about how stupid she was to sleep with some random stranger."
 sentence = "".join(sentence.split())
 
-for i, j in zip(sentence[::2], sentence[1::2]):
-    pairs = i+j
-    print(Counter(re.findall(r'{}'.format(pairs), sentence)))
+# Example by itertools recipe on python doc: https://docs.python.org/3/library/itertools.html#itertools-recipes
+def pairwise(iterable):
+    "s -> (s0,s1), (s1,s2), (s2, s3), ..."
+    a, b = itertools.tee(iterable)
+    next(b, None)
+    return zip(a, b)
+
+# Example by alkasm on reddit post: https://www.reddit.com/r/Python/comments/a6aug3/a_finder_and_counter_pairs_on_sentence/
+print(dict(Counter(map(''.join, pairwise(sentence)))))
+
+# breaking things down:
+# The pairwise i'll return tuples(pairs) of a sequence.
+# For this examples i'll return:
+# ("D", "e"), ("e", "i"), ("d", "r") ...
+#
+# Now we use map() for join ("D", "e") ... like that:
+# De, ei, dr ...
+#
+# With Counter() we can count how many "de", "ei" "dr" are in the setence.
+#
+# And with dict, we convert the Counter thing to a more organize data, with keys and values.
